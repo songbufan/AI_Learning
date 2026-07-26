@@ -1,0 +1,342 @@
+@import "tailwindcss";
+
+/* ============================================
+   自定义主题变量（Tailwind v4 CSS-based 配置）
+   ============================================ */
+@theme {
+  /* 主色调 */
+  --color-primary: #1a1a2e;
+  --color-primary-dark: #16213e;
+  --color-primary-card: #0f3460;
+  /* Python 品牌色 */
+  --color-python-blue: #3776AB;
+  --color-python-yellow: #FFD43B;
+  /* 文字颜色 */
+  --color-text-primary: #eaeaea;
+  --color-text-secondary: #a0a0b0;
+  --color-border: #2a2a4a;
+  /* 字体 */
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================
+   Python 学习网站 — 全局基础样式
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #1a1a2e;
+  color: #eaeaea;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   自定义滚动条样式
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ============================================
+   代码块样式（直接作用于 react-markdown 渲染的 <pre>）
+   ============================================ */
+.lesson-content pre {
+  background: #1e1e1e;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+/* 代码块内的 <code> 去掉默认内边距 */
+.lesson-content pre code {
+  padding: 0;
+  background: transparent;
+  font-size: inherit;
+}
+
+/* 语言标签 — 通过 pre 的 className（如 language-python）生成 */
+.lesson-content pre::before {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.75rem;
+  color: #a0a0b0;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #2a2a4a;
+  text-transform: capitalize;
+}
+
+.lesson-content pre.language-python::before {
+  content: 'Python';
+}
+.lesson-content pre.language-javascript::before {
+  content: 'JavaScript';
+}
+.lesson-content pre.language-typescript::before {
+  content: 'TypeScript';
+}
+.lesson-content pre.language-html::before {
+  content: 'HTML';
+}
+.lesson-content pre.language-css::before {
+  content: 'CSS';
+}
+.lesson-content pre.language-bash::before {
+  content: 'Bash';
+}
+.lesson-content pre.language-json::before {
+  content: 'JSON';
+}
+.lesson-content pre.language-yaml::before {
+  content: 'YAML';
+}
+.lesson-content pre.language-markdown::before {
+  content: 'Markdown';
+}
+.lesson-content pre.language-sql::before {
+  content: 'SQL';
+}
+
+/* ============================================
+   Markdown 渲染内容样式
+   ============================================ */
+.lesson-content {
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* 移动端优化 */
+@media (max-width: 1023px) {
+  .lesson-content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .lesson-content h2 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lesson-content h3 {
+    font-size: 1.1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lesson-content pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+  }
+
+  .lesson-content table {
+    font-size: 0.85rem;
+  }
+
+  .lesson-content th,
+  .lesson-content td {
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+.lesson-content h2 {
+  color: #3776AB;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2a2a4a;
+}
+
+.lesson-content h3 {
+  color: #FFD43B;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-content p {
+  margin-bottom: 1rem;
+  color: #eaeaea;
+}
+
+.lesson-content ul,
+.lesson-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.lesson-content li {
+  margin-bottom: 0.5rem;
+}
+
+.lesson-content code {
+  background: #2d2d4a;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  color: #ff79c6;
+}
+
+.lesson-content pre {
+  margin-bottom: 1.5rem;
+}
+
+.lesson-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.lesson-content blockquote {
+  border-left: 4px solid #FFD43B;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 212, 59, 0.05);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.lesson-content blockquote p {
+  margin-bottom: 0;
+}
+
+.lesson-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.lesson-content th,
+.lesson-content td {
+  border: 1px solid #2a2a4a;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.lesson-content th {
+  background: #16213e;
+  color: #FFD43B;
+  font-weight: 600;
+}
+
+.lesson-content tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lesson-content a {
+  color: #3776AB;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lesson-content a:hover {
+  color: #FFD43B;
+}
+
+.lesson-content strong {
+  color: #FFD43B;
+  font-weight: 600;
+}
+
+/* ============================================
+   移动端安全区域（适配刘海屏）
+   ============================================ */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ============================================
+   触摸优化
+   ============================================ */
+@media (max-width: 1023px) {
+  /* 增大移动端点击热区 */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* 优化移动端滚动 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 防止 iOS 缩放 */
+  input, textarea, select {
+    font-size: 16px;
+  }
+}
+
+/* ============================================
+   页面过渡动画
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 页面内容渐入 */
+.page-enter {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* 侧边栏滑入 */
+.sidebar-enter {
+  animation: slideInRight 0.3s ease-out forwards;
+}

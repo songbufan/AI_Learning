@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "Bash(node -e \"const p = require\\('pyodide'\\); console.log\\(Object.keys\\(p\\).join\\(', '\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(curl -s http://localhost:3456/course/1)",
+      "Bash(curl -s http://localhost:3000/course/1)",
+      "Bash(npx playwright *)",
+      "Bash(npx serve *)",
+      "Bash(curl -sI http://localhost:3000/pyodide/pyodide.asm.wasm)",
+      "Bash(curl -sI http://localhost:3000/pyodide/pyodide.js)",
+      "Bash(curl -sI http://localhost:3000/pyodide/pyodide.asm.mjs)",
+      "Bash(netstat -ano)",
+      "Bash(awk '{print $5}')",
+      "Bash(xargs -I {} tasklist //FI \"PID eq {}\")",
+      "Bash(npx tsc *)",
+      "Bash(grep -o \".\\\\{0,300\\\\}运行代码.\\\\{0,300\\\\}\")",
+      "Bash(grep -o \".\\\\{0,100\\\\}max-lg:hidden.\\\\{0,200\\\\}\")",
+      "Bash(tasklist //FI \"PID eq 30648\")",
+      "Bash(taskkill //F //PID 30648)",
+      "Bash(rm -f __tests__/e2e/debug-*.spec.ts __tests__/e2e/run-code.spec.ts)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(gh repo *)",
+      "Bash(git clone *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "Bash(rm -rf agency-agents-zh)",
+      "Bash(curl -s --max-time 60 \"https://api.github.com/repos/MetaCoda/agency-agents-zh/contents/\")"
+    ],
+    "additionalDirectories": [
+      "D:\\project\\pythonWebsite\\__tests__\\e2e"
+    ]
+  }
+}

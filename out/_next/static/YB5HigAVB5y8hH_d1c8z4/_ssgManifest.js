@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fcourse\u002F[courseId]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
