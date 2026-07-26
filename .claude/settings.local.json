@@ -27,7 +27,9 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch",
       "Bash(rm -rf agency-agents-zh)",
-      "Bash(curl -s --max-time 60 \"https://api.github.com/repos/MetaCoda/agency-agents-zh/contents/\")"
+      "Bash(curl -s --max-time 60 \"https://api.github.com/repos/MetaCoda/agency-agents-zh/contents/\")",
+      "Bash(git reset *)",
+      "Bash(git rm *)"
     ],
     "additionalDirectories": [
       "D:\\project\\pythonWebsite\\__tests__\\e2e"

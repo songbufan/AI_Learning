@@ -1,1 +1,20 @@
 node_modules
+
+# Next.js
+.next/
+out/
+
+# Test coverage & results
+coverage/
+test-results/
+
+# Claude Code local settings
+.claude/
+
+# Build & cache
+tsconfig.tsbuildinfo
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
