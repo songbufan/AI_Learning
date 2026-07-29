@@ -1,16 +1,9 @@
 /**
  * Sidebar — 悬浮展开侧边栏导航组件
  *
- * - 鼠标悬浮到侧边栏区域时展开，移开时自动折叠
- * - 折叠时只显示各章节的图标（垂直排列），点击图标跳转到对应章节
- * - 展开时显示课程信息、章节列表（含图标）和课时列表
- * - 仅显示当前课程的章节列表（不混合其他课程）
+ * - <aside> 始终占 220px，折叠时只显示左侧 52px 图标条
+ * - 鼠标悬浮展开（滑入完整内容），移开折叠（滑出）
  * - 状态持久化到 localStorage（默认折叠）
- *
- * 悬浮机制：
- * - `<aside>` 元素上的 onMouseEnter/onMouseLeave 作为唯一的 hover 检测器
- * - 折叠图标层有透明内边距，防止鼠标在图标间移动时误触发 mouseLeave
- * - 展开内容层（z-1）在折叠时 pointer-events: none，折叠图标层（z-2）在折叠时可交互
  */
 
 import { useState, useEffect, useRef } from 'react';
@@ -19,9 +12,8 @@ import ProgressBar from './ProgressBar';
 import CompletionBadge from './CompletionBadge';
 
 const SIDEBAR_COLLAPSED_KEY = 'sidebar-collapsed';
-const SIDEBAR_WIDTH = 220;        // 展开宽度（缩短）
-const SIDEBAR_COLLAPSED = 52;     // 折叠宽度（仅图标）
-const SIDEBAR_GAP = 8;
+const SIDEBAR_WIDTH = 220;
+const SIDEBAR_COLLAPSED = 52;
 
 export interface SidebarProps {
   /** 所有课程数据 */
@@ -95,26 +87,23 @@ export default function Sidebar({
 
   return (
     <aside
-      className="sticky top-14 self-start border-r overflow-hidden flex-shrink-0"
+      className="sticky top-14 self-start flex-shrink-0"
       style={{
-        width: isActuallyCollapsed ? SIDEBAR_COLLAPSED : SIDEBAR_WIDTH,
+        width: SIDEBAR_WIDTH,
         height: 'calc(100vh - 3.5rem)',
         backgroundColor: '#1a1a2e',
-        borderColor: '#2a2a4a',
+        borderLeft: '1px solid #2a2a4a',
         borderRadius: '8px',
-        flexShrink: 0,
-        transition: 'width 0.25s ease',
+        overflow: 'hidden',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* ===== 折叠状态：章节图标列表（z-2，最上层，折叠时可交互） ===== */}
+      {/* ===== 折叠状态：章节图标列表（左侧 52px） ===== */}
       <div
-        className="absolute inset-0 flex flex-col items-center"
+        className="absolute top-0 left-0 h-full flex flex-col items-center"
         style={{
           width: SIDEBAR_COLLAPSED,
-          marginLeft: 'auto',
-          marginRight: 'auto',
           zIndex: 2,
           paddingTop: 16,
           paddingBottom: 16,
@@ -164,14 +153,16 @@ export default function Sidebar({
         })}
       </div>
 
-      {/* ===== 展开状态：完整内容（z-1，展开时可见） ===== */}
+      {/* ===== 展开状态：完整内容（从左侧滑入） ===== */}
       <div
-        className="h-full overflow-y-auto overflow-x-hidden"
+        className="absolute top-0 left-0 h-full overflow-y-auto overflow-x-hidden"
         style={{
+          width: SIDEBAR_WIDTH,
           zIndex: 1,
           opacity: isExpanded ? 1 : 0,
+          transform: isExpanded ? 'translateX(0)' : 'translateX(-100%)',
           pointerEvents: isExpanded ? 'auto' : 'none',
-          transition: 'opacity 0.2s ease',
+          transition: 'opacity 0.2s ease, transform 0.25s ease',
         }}
       >
         <div className="p-4">

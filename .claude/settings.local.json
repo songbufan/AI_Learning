@@ -29,10 +29,90 @@
       "Bash(rm -rf agency-agents-zh)",
       "Bash(curl -s --max-time 60 \"https://api.github.com/repos/MetaCoda/agency-agents-zh/contents/\")",
       "Bash(git reset *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(pip install *)",
+      "Bash(python -m pip install git-filter-repo)",
+      "Bash(git filter-branch *)",
+      "Bash(git stash *)",
+      "Bash(git push *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(npm run *)",
+      "Bash(node check-syntax.js)",
+      "Bash(node check-syntax.cjs)",
+      "Bash(grep -n \"^  },\\\\?$\" src/lib/content/chapters.ts)",
+      "Read(//c/Users/26968/.claude/**)",
+      "Bash(jq '.' 'C:\\\\Users\\\\26968\\\\.claude\\\\settings.json' > /dev/null && echo \"JSON valid\" || echo \"JSON INVALID\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('C:\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\\26968\\\\\\\\\\\\\\\\.claude\\\\\\\\\\\\\\\\settings.json','utf8'\\)\\); console.log\\('JSON valid'\\)\")",
+      "Bash(node -e 'JSON.parse\\(require\\(\"fs\"\\).readFileSync\\(\"C:/Users/26968/.claude/settings.json\",\"utf8\"\\)\\); console.log\\(\"JSON valid\"\\)')",
+      "Bash(npx vitest *)",
+      "Bash(cat ~/.claude.json | jq '{installMethod, numStartups, autoUpdates, autoUpdatesChannel, skillUsage, pluginUsage, mcpServers: \\(.mcpServers | keys\\)}' 2>/dev/null || echo \"PARSE_ERROR\")",
+      "Read(//c/Users/26968/**)",
+      "Bash(cat ~/.claude/settings.json 2>/dev/null | jq '{permissions: .permissions, enabledPlugins: .enabledPlugins, disabledMcpServers: .disabledMcpServers, skillOverrides: .skillOverrides, hooks: \\(.hooks | keys\\)}' 2>/dev/null || echo \"NO_FILE\")",
+      "Bash(ls -la ~/.claude/ 2>/dev/null | head -30)",
+      "Bash(claude --version)",
+      "Bash(cat ~/.claude/settings.json | jq '.' 2>/dev/null || echo \"PARSE_ERROR\")",
+      "Bash(find .claude/agents -name '*.md' 2>/dev/null; echo \"---\"; ls ~/.claude/agents/ 2>/dev/null || echo \"no user agents dir\")",
+      "Bash(ls ~/.claude/skills/ 2>/dev/null; echo \"===\"; ls .claude/skills/ 2>/dev/null || echo \"no project skills\")",
+      "Bash(wc -c ~/.claude/settings.json; wc -c .claude/settings.local.json)",
+      "Bash(echo \"---EXIT: $?\")",
+      "Bash(cat ~/.claude/settings.json)",
+      "Bash(ls -la ~/.claude/plugins/ 2>/dev/null | head -20)",
+      "Read(//c/Users/26968/.claude/plugins/**)",
+      "Bash(node -e \"try { const s = require\\('fs'\\).readFileSync\\('C:/Users/26968/.claude/settings.json','utf8'\\); JSON.parse\\(s\\); console.log\\('JSON valid'\\); } catch\\(e\\) { console.log\\('PARSE ERROR:', e.message\\); }\")",
+      "Bash(ls ~/.claude/projects/ 2>/dev/null)",
+      "Read(//c/Users/26968/.claude/projects/**)",
+      "Bash(find ~/.claude/projects/ -name '*.jsonl' -mtime -30 2>/dev/null | head -20)",
+      "Read(//c/Users/26968/.claude/plugins/marketplaces/**)",
+      "Bash(node -e \"try { const s = require\\('fs'\\).readFileSync\\('.claude/settings.local.json','utf8'\\); JSON.parse\\(s\\); console.log\\('JSON valid'\\); } catch\\(e\\) { console.log\\('PARSE ERROR:', e.message\\); }\")",
+      "Bash(ls -la ~/.claude/sessions/ 2>/dev/null | head -20)",
+      "Read(//c/Users/26968/.claude/sessions/**)",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\(0,'utf8'\\); const j=JSON.parse\\(d\\); console.log\\('installMethod:', j.installMethod||'not set'\\); console.log\\('numStartups:', j.numStartups||0\\); console.log\\('autoUpdates:', j.autoUpdates\\); console.log\\('autoUpdatesChannel:', j.autoUpdatesChannel||'not set \\(defaults to latest\\)'\\); console.log\\('skillUsage keys:', Object.keys\\(j.skillUsage||{}\\).length\\); console.log\\('pluginUsage keys:', Object.keys\\(j.pluginUsage||{}\\).length\\); console.log\\('mcpServers keys:', Object.keys\\(j.mcpServers||{}\\).length\\);\")",
+      "Bash(xargs stat --format='%Y %n')",
+      "Bash(find . -name 'CLAUDE.local.md' -o -path './.claude/rules/*.md' 2>/dev/null; echo \"===\"; find ~/.claude/ -name 'CLAUDE.md' -o -name 'CLAUDE.local.md' 2>/dev/null)",
+      "Bash(ls ~/.claude/plugins/marketplaces/claude-plugins-official/ 2>/dev/null | head -20)",
+      "Read(//c/Users/26968/.claude/plugins/marketplaces/claude-plugins-official/**)",
+      "Read(//c/Users/26968/.claude/plugins/marketplaces/claude-plugins-official/plugins/**)",
+      "Read(//c/Users/26968/.claude/plugins/marketplaces/claude-plugins-official/external_plugins/**)",
+      "Bash(find ~/.claude/plugins -name '*.json' -not -path '*/.git/*' 2>/dev/null | head -20; echo \"===\"; ls ~/.claude/plugins/*.json 2>/dev/null)",
+      "Bash(ls -la ~/.claude/plugins/ 2>/dev/null)",
+      "Bash(find ~/.claude -maxdepth 4 -name 'plugin.json' -o -name 'enabled*' -o -name 'disabled*' 2>/dev/null | grep -v '.git/' | head -20)",
+      "Bash(echo \"---EXIT:$?\")",
+      "Bash(mkdir -p \"d:/project/AI_Learning/.claude/skills\")",
+      "Bash(taskkill /PID 26616 /F)",
+      "Bash(taskkill //F //PID 26616)",
+      "Bash(rm -rf .next)"
     ],
     "additionalDirectories": [
-      "D:\\project\\pythonWebsite\\__tests__\\e2e"
+      "D:\\project\\pythonWebsite\\__tests__\\e2e",
+      "C:\\Users\\26968\\.claude",
+      "d:\\project\\AI_Learning\\.claude"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git diff --quiet 2>/dev/null || echo '⚠️  有代码变更尚未提交到仓库' > d:/project/AI_Learning/.claude/uncommitted-notify.txt"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git diff --quiet 2>/dev/null || echo '⚠️  有代码变更尚未提交到仓库' > d:/project/AI_Learning/.claude/uncommitted-notify.txt"
+          }
+        ]
+      }
     ]
   }
 }

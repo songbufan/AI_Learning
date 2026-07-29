@@ -5,8 +5,8 @@ describe('chapters.ts — 课程数据层', () => {
   // ==================== 数据结构验证 ====================
 
   describe('courses 数组', () => {
-    it('应该包含 3 个课程', () => {
-      expect(courses).toHaveLength(3);
+    it('应该包含 4 个课程', () => {
+      expect(courses).toHaveLength(4);
     });
 
     it('每个课程应该有 id、title、icon、color、chapters 字段', () => {
@@ -21,9 +21,9 @@ describe('chapters.ts — 课程数据层', () => {
       }
     });
 
-    it('课程 ID 应该是 1、2、3', () => {
+    it('课程 ID 应该是 1、2、3、4', () => {
       const ids = courses.map((c) => c.id);
-      expect(ids).toEqual([1, 2, 3]);
+      expect(ids).toEqual([1, 2, 3, 4]);
     });
 
     it('每个课程的 icon 应该是 emoji', () => {
@@ -62,6 +62,10 @@ describe('chapters.ts — 课程数据层', () => {
 
     it('区块链课程应该有 10 个章节', () => {
       expect(courses[2].chapters).toHaveLength(10);
+    });
+
+    it('Linux 课程应该有 9 个章节', () => {
+      expect(courses[3].chapters).toHaveLength(9);
     });
 
     it('总课时数应该大于 47', () => {
@@ -231,6 +235,7 @@ describe('chapters.ts — 课程数据层', () => {
       expect(all.some((l) => l.id === '2-3')).toBe(true);
       expect(all.some((l) => l.id === '3-1')).toBe(true);
       expect(all.some((l) => l.id === '3-35')).toBe(true);
+      expect(all.some((l) => l.id === '4-1')).toBe(true);
     });
 
     it('每个课时应该只出现一次', () => {

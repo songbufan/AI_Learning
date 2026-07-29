@@ -116,11 +116,9 @@ describe('Sidebar — 侧边栏导航', () => {
   describe('展开状态', () => {
     it('悬浮时应该展开显示完整内容', () => {
       render(<Sidebar courses={mockCourses} currentCourseId={1} progress={createTestProgress()} />);
-      // 模拟鼠标悬浮
       const sidebar = screen.getByText('总进度').closest('aside')!;
       fireEvent.mouseEnter(sidebar);
 
-      // 展开后应该显示章节名称
       expect(screen.getByText('Python 入门')).toBeInTheDocument();
       expect(screen.getByText('条件判断')).toBeInTheDocument();
     });
@@ -130,7 +128,6 @@ describe('Sidebar — 侧边栏导航', () => {
       const sidebar = screen.getByText('总进度').closest('aside')!;
       fireEvent.mouseEnter(sidebar);
 
-      // 展开视图中显示章节图标（使用 getAllByText 因为折叠视图也包含图标）
       const chapterIcons = screen.getAllByText('📘');
       expect(chapterIcons.length).toBeGreaterThanOrEqual(1);
       const chapterIcons2 = screen.getAllByText('🔀');
@@ -142,7 +139,6 @@ describe('Sidebar — 侧边栏导航', () => {
       const sidebar = screen.getByText('总进度').closest('aside')!;
       fireEvent.mouseEnter(sidebar);
 
-      // Chapter 1 有 2 课时, Chapter 2 有 0 课时
       const lessonBadges = screen.getAllByText('2');
       expect(lessonBadges.length).toBeGreaterThanOrEqual(1);
     });
@@ -163,7 +159,6 @@ describe('Sidebar — 侧边栏导航', () => {
       const sidebar = screen.getByText('总进度').closest('aside')!;
       fireEvent.mouseEnter(sidebar);
 
-      // 展开状态下课时可见
       expect(screen.getByText('1. 第一课')).toBeInTheDocument();
       expect(screen.getByText('2. 第二课')).toBeInTheDocument();
     });
@@ -180,12 +175,9 @@ describe('Sidebar — 侧边栏导航', () => {
       const sidebar = screen.getByText('总进度').closest('aside')!;
       fireEvent.mouseEnter(sidebar);
 
-      // 展开状态下课时可见
       expect(screen.getByText('1. 第一课')).toBeInTheDocument();
-      // 点击章节按钮折叠
       const chapterBtn = screen.getByText('Python 入门').closest('button')!;
       fireEvent.click(chapterBtn);
-      // 折叠后课时隐藏
       expect(screen.queryByText('1. 第一课')).not.toBeInTheDocument();
     });
   });

@@ -56,8 +56,6 @@ export function loadLessonMarkdown(lessonId: string): string {
  */
 function getCourseDir(prefix: string): string {
   switch (prefix) {
-    case '1':
-    case '5':
     case '8':
     case '9':
     case '10':
@@ -66,6 +64,12 @@ function getCourseDir(prefix: string): string {
       return 'agent';
     case '3':
       return 'blockchain';
+    case '4':
+      return 'linux';
+    case '5':
+      return 'go';
+    case '6':
+      return 'rust';
     default:
       return '';
   }
