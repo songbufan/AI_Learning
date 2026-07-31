@@ -1,19 +1,23 @@
 node_modules
 
-# Next.js
+# ===== AI_Learning (Next.js) =====
 .next/
 out/
-
-# Test coverage & results
 coverage/
 test-results/
+tsconfig.tsbuildinfo
+*.log
+
+# ===== resume (Vite + Three.js) =====
+projects/resume/dist/
+projects/resume/.vscode/
+projects/resume/.env
+
+# ===== song (Vite + React) =====
+projects/song/.env
 
 # Claude Code local settings
 .claude/
-
-# Build & cache
-tsconfig.tsbuildinfo
-*.log
 
 # OS
 .DS_Store
