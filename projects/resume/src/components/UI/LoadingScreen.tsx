@@ -1,0 +1,18 @@
+import { useSceneStore } from '../../stores';
+import styles from './LoadingScreen.module.css';
+
+export function LoadingScreen() {
+  const { loading } = useSceneStore();
+
+  if (loading.done) return null;
+
+  return (
+    <div className={styles.loadingScreen} role="status" aria-live="polite" aria-label="Loading 3D scene">
+      <div className={styles.loaderTitle}>Portfolio Room</div>
+      <div className={styles.loaderBarWrap}>
+        <div className={styles.loaderBar} style={{ width: `${loading.progress}%` }} />
+      </div>
+      <div className={styles.loaderHint}>{loading.hint}</div>
+    </div>
+  );
+}
